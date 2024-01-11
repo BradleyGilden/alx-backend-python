@@ -10,6 +10,10 @@ Date: 11-01-2024
 
 
 def add(a: float, b: float) -> float:
+    """
+    adds two floats (a + b)
+    Returns: Sum of float a and float b
+    """
     return a + b
 
 
