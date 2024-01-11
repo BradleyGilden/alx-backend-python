@@ -24,7 +24,7 @@
   * school, a string with a value of “Holberton”
 
 * [5-sum_list.py](5-sum_list.py) - Write a type-annotated function sum_list which takes a list input_list of floats as argument and returns their sum as a float.
-* []() -
+* [6-sum_mixed_list.py](6-sum_mixed_list.py) - Write a type-annotated function sum_mixed_list which takes a list mxd_lst of integers and floats and returns their sum as a float
 * []() -
 * []() -
 * []() -
