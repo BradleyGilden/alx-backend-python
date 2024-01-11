@@ -32,6 +32,14 @@
   def element_length(lst):
     return [(i, len(i)) for i in lst]
   ```
-* []() -
+* [100-safe_first_element.py](100-safe_first_element.py) - Augment the following code with the correct duck-typed annotations
+  ```Python
+  # The types of the elements of the input are not know
+  def safe_first_element(lst):
+    if lst:
+      return lst[0]
+    else:
+      return None
+  ```
 * []() -
 * []() -
