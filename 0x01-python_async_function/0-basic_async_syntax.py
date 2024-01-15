@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
 """
-<module docstring>
-
 Author: Bradley Dillion Gilden
 Date: 15-01-2024
 """
