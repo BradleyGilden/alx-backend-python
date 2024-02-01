@@ -5,7 +5,7 @@ Author: Bradley Dillion Gilden
 Date: 01-02-2024
 """
 import unittest
-from unittest.mock import Mock, patch
+from unittest.mock import MagicMock, Mock, patch
 from utils import access_nested_map, get_json
 from parameterized import parameterized, param  # type: ignore
 from typing import Dict, Sequence, Union
@@ -46,7 +46,7 @@ class TestGetJson(unittest.TestCase):
         param(test_url="http://holberton.io", test_payload={"payload": False})
     ])
     @patch("utils.requests.get")
-    def test_get_json(self, response: Mock,
+    def test_get_json(self, response: Union[MagicMock, Mock],
                       test_url: str, test_payload: Dict[str, bool]):
         """test json response from http request"""
         # json.return_value = test_payload
