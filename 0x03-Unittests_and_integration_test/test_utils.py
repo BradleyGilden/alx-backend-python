@@ -93,7 +93,7 @@ class TestMemoize(unittest.TestCase):
         with patch.object(
             TestClass, "a_method", new_callable=Mock
         ) as mock_a_method:
-            """mocking a read only property"""
+            """mocking the a_method"""
             mock_a_method.return_value = 42
             test_obj = TestClass()
             self.assertEqual(test_obj.a_property, 42)
