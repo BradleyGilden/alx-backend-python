@@ -91,6 +91,7 @@ class TestGithubOrgClient(unittest.TestCase):
             self.assertEqual(cli.public_repos(), ['example-repo'])
             self.assertEqual(cli.public_repos(), ['example-repo'])
             mock_get_json.assert_called_once()
+            cm.assert_called_once()
 
 
 if __name__ == "__main__":
