@@ -10,7 +10,7 @@ from client import GithubOrgClient
 from parameterized import parameterized, param  # type: ignore
 from typing import Dict, Sequence, Union
 
-gres = {
+GPAYLOAD = {
     "login": "google",
     "id": 1342004,
     "url": "https://api.github.com/orgs/google",
@@ -24,7 +24,7 @@ gres = {
     "created_at": "2012-01-18T01:30:18Z",
     "updated_at": "2021-12-30T01:40:20Z"
 }
-abcres = {
+ABCPAYLOAD = {
     'message': 'Not Found',
     'documentation_url':
     'https://docs.github.com/rest/orgs/orgs#get-an-organization'
@@ -35,8 +35,8 @@ class TestGithubOrgClient(unittest.TestCase):
     """testing responses for a request client for github"""
 
     @parameterized.expand([
-        ("google", gres),
-        ("abc", abcres)
+        ("google", GPAYLOAD),
+        ("abc", ABCPAYLOAD)
     ])
     @patch("utils.get_json")
     def test_org(self, org: str, response: Dict, mock_get_json: MagicMock):
@@ -54,7 +54,7 @@ class TestGithubOrgClient(unittest.TestCase):
         with patch.object(
             GithubOrgClient, 'org', new_callable=PropertyMock
         ) as cm:
-            cm.return_value = gres
+            cm.return_value = GPAYLOAD
             cli = GithubOrgClient("google")
             self.assertEqual(cli._public_repos_url,
                              "https://api.github.com/orgs/google/repos")
