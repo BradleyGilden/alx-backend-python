@@ -33,16 +33,16 @@ GREPOS = [
     "html_url": "https://github.com/google/example-repo",
     "created_at": "2022-01-01T12:00:00Z",
     "updated_at": "2022-02-01T14:30:00Z",
-    "language": "JavaScript",
-    "forks_count": 42,
-    "stargazers_count": 100,
-    "watchers_count": 80,
-    "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "url": "https://opensource.org/licenses/MIT"
-    }
     },
+    {
+    "id": 123456799,
+    "name": "example-repo2",
+    "full_name": "google/example-repo",
+    "description": "An example repository from Google",
+    "html_url": "https://github.com/google/example-repo",
+    "created_at": "2022-01-01T12:00:00Z",
+    "updated_at": "2022-02-01T14:30:00Z",
+    }
 ]
 ABCPAYLOAD = {
     'message': 'Not Found',
@@ -88,8 +88,10 @@ class TestGithubOrgClient(unittest.TestCase):
         ) as cm:
             cm.return_value = "https://api.github.com/orgs/google/repos"
             cli = GithubOrgClient("google")
-            self.assertEqual(cli.public_repos(), ['example-repo'])
-            self.assertEqual(cli.public_repos(), ['example-repo'])
+            response = cli.public_repos()
+            expected = ["example-repo", "example-repo2"]
+            for rname, name in zip(response, expected):
+                self.assertEqual(rname, name)
             mock_get_json.assert_called_once()
             cm.assert_called_once()
 
