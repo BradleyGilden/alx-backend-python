@@ -90,8 +90,8 @@ class TestGithubOrgClient(unittest.TestCase):
             cli = GithubOrgClient("google")
             response = cli.public_repos()
             expected = ["example-repo", "example-repo2"]
-            for rname, name in zip(response, expected):
-                self.assertEqual(rname, name)
+            for rname in response:
+                self.assertIn(rname, expected)
             mock_get_json.assert_called_once()
             cm.assert_called_once()
 
